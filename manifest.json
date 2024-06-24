@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Ad Muter",
+  "version": "1.0",
+  "description": "Mutes the audio when ads play on video streaming sites.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.youtube.com/*",
+        "https://*.hulu.com/*",
+        "https://*.hotstar.com/*",
+        "https://*.netflix.com/*",
+        "https://*.primevideo.com/*",
+        "https://*.aha.video/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
